@@ -86,6 +86,11 @@ export function validate<T>(
   };
 }
 
+export const date = validate(
+  map(string, (x) => new Date(x)),
+  (x) => !Number.isNaN(x.getTime())
+);
+
 export const stringed =
   <T extends string | number | bigint | boolean | null | undefined>(
     T: Stylizer<T>

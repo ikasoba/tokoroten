@@ -1,0 +1,21 @@
+{
+  "name": "@ikasoba000/tokoroten",
+  "version": "0.1.0",
+  "description": "tokoroten is a utility for matching JSON-like input to a schema.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "scripts": {
+    "prepare": "pnpm run build",
+    "build": "tsc --outDir dist --declaration true"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [],
+  "author": "https://github.com/ikasoba",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  }
+}

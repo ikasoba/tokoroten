@@ -24,7 +24,9 @@ const _undefined: Stylizer<undefined> = (input) =>
   input === undefined ? { value: input } : null;
 
 const _const =
-  <T>(value: T): Stylizer<T> =>
+  <T extends string | number | bigint | boolean | null | undefined>(
+    value: T
+  ): Stylizer<T> =>
   (input) =>
     input === value ? { value } : null;
 
@@ -53,9 +55,13 @@ export const map =
     const result = T(input);
     if (result == null) return null;
 
-    return {
-      value: fn(result.value),
-    };
+    try {
+      return {
+        value: fn(result.value),
+      };
+    } catch {
+      return null;
+    }
   };
 
 export function validate<T>(
